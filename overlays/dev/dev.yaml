@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - dev.agileguru.org
+    secretName: dev-agileguru-org
+  rules:
+  - host: dev.agileguru.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: app1-service
+            port: 
+                number: 80       
+      - path: /app
+        pathType: Prefix
+        backend:
+          service: 
+            name: app2-service
+            port: 
+                number: 80 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app2
+  name: app2-deployment
+spec:
+  replicas: 2                
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app1
+  name: app1-deployment
+spec:
+  replicas: 2      
+                  

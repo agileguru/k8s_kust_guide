@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app1
+  name: app1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1-containter
+        image: tutum/hello-world
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: app1
+  name: app1-service
+spec:
+  type: NodePort
+  ports:
+  - name: webport
+    port: 80
+    targetPort: 80
+  selector:
+    app: app1    
