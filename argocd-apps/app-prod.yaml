@@ -11,7 +11,7 @@ spec:
     path: overlays/prod  # Path to the directory containing development manifests in the repository
   destination:
     server: 'https://kubernetes.default.svc'  # Kubernetes API server address
-    namespace: dev # Namespace in the Kubernetes cluster where this app should be deployed
+    namespace: prod # Namespace in the Kubernetes cluster where this app should be deployed
   syncPolicy:
     automated:  # Automatically sync the application when changes are detected in the repository
       prune: true  # Remove resources not defined in Git
