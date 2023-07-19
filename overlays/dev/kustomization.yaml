@@ -9,7 +9,7 @@ resources:
 - ../../base/environments/dev
 - ../../base/apps/app_1
 - ../../base/apps/app_2
-- ../../base/apps/ingress
+
 
 
 patchesStrategicMerge:
