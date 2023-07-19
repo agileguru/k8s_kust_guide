@@ -8,7 +8,7 @@ namespace: sit
 resources:
 - ../../base/environments/sit
 - ../../base/apps/app_1
-- ../../base/apps/ingress
+
 
 patchesStrategicMerge:
 - sit.yaml
