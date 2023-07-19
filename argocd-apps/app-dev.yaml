@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/RohanRusta21/k8s_kust_guide.git
     targetRevision:  argo-cd # Branch or tag to sync with
-    path: overlays/  # Path to the directory containing development manifests in the repository
+    path: overlays/dev  # Path to the directory containing development manifests in the repository
   destination:
     server: 'https://kubernetes.default.svc'  # Kubernetes API server address
     namespace: dev # Namespace in the Kubernetes cluster where this app should be deployed
