@@ -7,7 +7,7 @@ namespace: uat
 
 resources:
 - ../../base/environments/uat
-- ../../base/apps/ingress
+
 
 patchesStrategicMerge:
 - uat.yaml
