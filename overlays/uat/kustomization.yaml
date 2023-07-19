@@ -9,5 +9,4 @@ resources:
 - ../../base/environments/uat
 
 
-patchesStrategicMerge:
-- uat.yaml
+
