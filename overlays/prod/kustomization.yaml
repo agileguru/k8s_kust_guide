@@ -7,7 +7,5 @@ namespace: prod
 
 resources:
 - ../../base/environments/prod
-- ../../base/apps/ingress
 
-patchesStrategicMerge:
-- prod.yaml
+

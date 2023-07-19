@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-prod
+  namespace: argocd  # Namespace where ArgoCD is installed
+spec:
+  project: default  # The project to which the application belongs (you can customize projects as needed)
+  source:
+    repoURL: https://github.com/RohanRusta21/k8s_kust_guide.git
+    targetRevision:  argo-cd # Branch or tag to sync with
+    path: overlays/prod  # Path to the directory containing development manifests in the repository
+  destination:
+    server: 'https://kubernetes.default.svc'  # Kubernetes API server address
+    namespace: prod # Namespace in the Kubernetes cluster where this app should be deployed
+  syncPolicy:
+    automated:  # Automatically sync the application when changes are detected in the repository
+      prune: true  # Remove resources not defined in Git
+      selfHeal: true  # Automatically correct drift between the desired and observed state
